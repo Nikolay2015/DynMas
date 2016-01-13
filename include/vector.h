@@ -135,8 +135,8 @@ public:
 		{
 			throw std::out_of_range("positon >= size of vector");
 		}
-		*data = data_ + pos;//
-		return *(data);
+		char *temp = data_ + pos;//
+		return *(temp);
 	}
 
 	T& front() noexcept 
@@ -171,7 +171,7 @@ public:
 
 	bool empty() const noexcept 
 	{
-		if (size_ = 0)
+		if (size_ == 0)
 		{
 			return true;
 		}
