@@ -16,13 +16,6 @@ public:
 	using pointer = value_type*;
 	using const_pointer = const value_type*;
 
-	//static value_type invar;
-
-	//Vector()
-	//{
-	//	T invar = T();
-	//};
-
 	Vector()//
 	{
 		data_ = new value_type[1];
@@ -204,13 +197,13 @@ public:
 		{
 			size_++;
 			capacity_ = 2 * size_;
-			value_type *tmp = new value_type[capacity_];
+			value_type *temp = new value_type[capacity_];
 			for (size_type i = 0; i < size_ - 1; i++)
 			{
-				*(tmp + i) = *(data_ + i);
+				*(temp + i) = *(data_ + i);
 			}
-			*(tmp++) = value;
-			data_ = tmp;
+			*(temp + size_ - 1) = value;
+			data_ = temp;
 		}
 	}
 
