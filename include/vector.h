@@ -198,7 +198,7 @@ public:
 		if ((size_ + 1) <= capacity_)
 		{
 			*(data_ + size_) = value;
-			++size_;
+			size_++;
 		}
 		else
 		{
