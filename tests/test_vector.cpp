@@ -1,4 +1,4 @@
-#define CATCH_CONFIG_MAIN // This tells Catch to provide a main() - only do this in one cpp file
+#define CATCH_CONFIG_MAIN
 
 #include "vector.h"
 #include "catch.hpp"
@@ -27,11 +27,6 @@ TEST_CASE("Vector default ctor") {
         REQUIRE(v.size() == 0);
         REQUIRE(v.capacity() == 1);
     }
-   /* SECTION("*char") {
-        Vector<*char> v;
-        REQUIRE(v.size() == 0);
-        REQUIRE(v.capacity() == 1);
-    }*/
 }
 
 TEST_CASE("Vector explicit init ctor") {
@@ -44,9 +39,6 @@ TEST_CASE("Vector explicit init ctor") {
     SECTION("char") {
         REQUIRE(Vector<char>{6}.size() == 6);
     }
-    /* SECTION("*char") {
-        REQUIRE(Vector<int>{6}.size() == 6);
-     }*/
 }
 
 TEST_CASE("Vector init ctor") {
@@ -110,7 +102,6 @@ TEST_CASE("Assigment ctor") {
         Vector<int> w(std::move(v));
         cmp_array(w, expected, 3);
         REQUIRE(v.size() == 0);
-       // REQUIRE(*v.data() == Vector<int>::invar);
     }
     SECTION("double") {
         Vector<double> v{3};
@@ -121,7 +112,6 @@ TEST_CASE("Assigment ctor") {
         Vector<double> w(std::move(v));
         cmp_array(w, expected, 3);
         REQUIRE(v.size() == 0);
-        //REQUIRE(*v.data() == Vector<double>::invar);
     }
     SECTION("char") {
         Vector<char> v{3};
@@ -132,7 +122,6 @@ TEST_CASE("Assigment ctor") {
         Vector<char> w(std::move(v));
         cmp_array(w, expected, 3);
         REQUIRE(v.size() == 0);
-        //REQUIRE(*v.data() == Vector<char>::invar);
     }
 }
 
@@ -176,7 +165,6 @@ TEST_CASE("Assigment") {
         Vector<int> w = std::move(v);
         cmp_array(w, expected, 3);
         REQUIRE(v.size() == 0);
-        //REQUIRE(v.data() == &Vector<int>::invar);
     }
     SECTION("double") {
         Vector<double> v{3};
@@ -187,7 +175,6 @@ TEST_CASE("Assigment") {
         Vector<double> w = std::move(v);
         cmp_array(w, expected, 3);
         REQUIRE(v.size() == 0);
-       // REQUIRE(v.data() == &Vector<double>::invar);
     }
     SECTION("char") {
         Vector<char> v{3};
@@ -198,7 +185,6 @@ TEST_CASE("Assigment") {
         Vector<char> w = std::move(v);
         cmp_array(w, expected, 3);
         REQUIRE(v.size() == 0);
-        //REQUIRE(v.data() == &Vector<char>::invar);
     }
 }
 

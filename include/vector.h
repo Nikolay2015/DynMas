@@ -22,14 +22,14 @@ public:
 		data_[0] = 0;
 		capacity_ = 1;
 		size_ = 0;
-	};
+	}
 
 	explicit Vector(size_type count) 
 	{
 		data_ = new value_type[count];
 		capacity_ = count;
 		size_ = count;
-	};
+	}
 
 	Vector(size_type count, const value_type& value) 
 	{
@@ -40,7 +40,7 @@ public:
 		{
 			*(data_ + i) = value;
 		}
-	};
+	}
 
 	Vector(const Vector &other) 
 	{
@@ -51,7 +51,7 @@ public:
 		{
 			*(data_ + i) = *(other.data_ + i);
 		}
-	};
+	}
 
 	Vector(Vector&& other) noexcept 
 	{
@@ -61,12 +61,12 @@ public:
 		other.capacity_ = 0;
 		data_ = other.data_;
 		other.data_ = nullptr;
-	};
+	}
 
 	~Vector()
 	{
 			delete[] data_;
-	};
+	}
 
 	Vector<T> &operator=(const Vector& other) 
 	{
@@ -80,8 +80,8 @@ public:
 		else 
 		{
 			delete[] data_;
-			data_ = new value_type[2 * other.size_];
-			capacity_ = 2 * other.size_;
+			data_ = new value_type[other.size_];
+			capacity_ = other.size_;
 			for (size_type i = 0; i < other.size_; ++i) 
 			{
 				*(data_ + i) = *(other.data_ + i);
@@ -116,7 +116,7 @@ public:
 	{
 		if (pos >= size_) 
 		{
-			throw std::out_of_range("");
+			throw std::out_of_range("positon >= size of vector");
 		}
 		value_type *pt = data_ + pos;
 		return *(pt);
